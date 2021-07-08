@@ -1,27 +1,25 @@
 package HackerRank.LinkedList;
 
-public class SinglyLinkedList {
+public class DoublyLinkedList {
 
     private int data;
-    private Node head;
-    private Node tail;
+    private DoubleNode head;
+    private DoubleNode tail;
 
-    public SinglyLinkedList(int data){
 
-        Node newNode = new Node(data);
-        head = newNode;
+    public DoublyLinkedList(int data){
 
-        if(tail == null){
-
-            tail = head;
-
-        }
+        DoubleNode newDoubleNode = new DoubleNode(data);
+        head = newDoubleNode;
+        tail = head;
 
     }
 
     public void addToHead(int data){
 
-        Node newNode = new Node(data, head);
+        DoubleNode newNode = new DoubleNode(data, head, null);
+
+        head.prev = newNode;
 
         head = newNode;
 
@@ -29,19 +27,21 @@ public class SinglyLinkedList {
 
     public void addToTail(int data){
 
-        Node newNode = new Node(data);
+        DoubleNode newNode = new DoubleNode(data, null, tail);
 
         tail.next = newNode;
+
         tail = newNode;
 
     }
 
     public void deleteFromHead(){
 
-        Node newHead = head.next;
+        DoubleNode newHead = head.next;
 
         if (newHead != null) {
             head = newHead;
+            head.prev = null;
         } else{
             head = tail = newHead = null;
         }
@@ -57,13 +57,7 @@ public class SinglyLinkedList {
 
         }else {
 
-            Node newTail = head;
-
-            while (newTail.next != tail) {
-
-                newTail = newTail.next;
-
-            }
+            DoubleNode newTail = tail.prev;
 
             tail = null;
 
@@ -76,7 +70,7 @@ public class SinglyLinkedList {
     public void printList(){
 
         String output = "<head> ";
-        Node newTail = head;
+        DoubleNode newTail = head;
 
         while(newTail != tail){
 
@@ -96,5 +90,5 @@ public class SinglyLinkedList {
 
 
 
-}
 
+}

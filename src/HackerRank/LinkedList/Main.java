@@ -6,7 +6,7 @@ public class Main{
     public static void main(String args[]){
 
 
-        SinglyLinkedList example = new SinglyLinkedList(1);
+        DoublyLinkedList example = new DoublyLinkedList (1);
         example.addToHead(2);
         example.addToHead(3);
         example.addToHead(4);
@@ -32,11 +32,7 @@ public class Main{
 
         example.printList();
 
-        example.deleteFromHead();
-
-        example.printList();
-
-        example.deleteFromHead();
+        example.deleteFromTail();
 
         example.printList();
     }
