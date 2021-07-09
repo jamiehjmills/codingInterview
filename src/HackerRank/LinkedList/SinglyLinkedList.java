@@ -94,6 +94,12 @@ public class SinglyLinkedList {
 
     }
 
+    public Node getHead(){
+
+        return head;
+
+    }
+
 
 
 }
